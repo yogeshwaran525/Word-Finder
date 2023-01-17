@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORD FINDER</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>WORD FINDER IN PARAGRAPH</h1>
+    <div class="textarea">
+        <textarea   id = "txt1"  placeholder="Enter your search item here"></textarea>   
+        <textarea   id = "txt2" placeholder="Enter your search item here"></textarea>
+    </div> 
+    
+    <button onclick = "myFunction()"> Search </button>
+    <p id="demo" class="demo">Display the result here.</p>
+    <script>
+        function myFunction()
+        {            
+        var myString = document.getElementById("txt1").value;
+        var myWord = document.getElementById("txt2").value;       
+        var myPattern = new RegExp('(\\w*'+myWord+'\\w*)','gi');                 
+
+        var matches = myString.match(myPattern);
+
+        if (matches === null){
+            document.getElementById("demo").innerHTML = "No results"; // Any message or empty       
+            return;   }
+        document.getElementById("demo").innerHTML = matches + "&nbsp,&nbsp,&nbsp" +  matches.length + " result(s) found.";
+        document.getElementById("demo").innerHTML = myResult;            
+        }        
+    </script>
+</body>
+</html>
